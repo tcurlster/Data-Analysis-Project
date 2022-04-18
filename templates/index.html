@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fake News</title>
+  <!--Bootstrap Core CSS-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!--Additional manual CSS styling-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <!--Plotly CDN -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body class="bg">
+  <div class="wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Fake News</a>
+        <button class="navbar-toggler" type="button"  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-6 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Our Machine</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <div class="jumbotron">
+    <h1 class="display-4">What Is Real And What Is Not?</h1>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Spot for Input Box to test article</h3>
+            <div>
+              <button id="find-truth">Find Out The Truth!</button>
+              <input id="input-field" type="text">
+            </div>
+        </div>
+        <div class="col-md-8">
+            <p>So what is “fake news”? Fake news is misinformation, poor reporting, lies or propaganda. In a political context, it is usually a directed effort to undermine a candidate, campaign or public figure.<br><br><bold>... To Be Continued ...</bold></p>
+            <br><br>
+            <div id="plotArea"></div>
+            <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+          </div>      
+    </div>
+</div>
+
+</body>
+
+</html>
