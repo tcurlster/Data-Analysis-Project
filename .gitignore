@@ -128,9 +128,10 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Mac DS store
-.DS_store
+# Ignore mac hidden folders
+.DS_Store
 
-# Config files
-config.py
-config.js
+# Ignore large data files
+.csv
+.json
+
