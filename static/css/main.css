@@ -5,3 +5,13 @@
     background-repeat: no-repeat;  
     text-align: right;
 }
+::placeholder {
+    text-align: start;
+    padding-left: 3px;
+  }
+button {
+    align-self: right;
+}
+textarea {
+    align-self: center;
+}
