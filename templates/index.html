@@ -18,17 +18,15 @@
   <div class="wrapper">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Fake News</a>
+        <a class="navbar-brand" href="index.html">Fake News</a>
         <button class="navbar-toggler" type="button"  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-6 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Categories</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Our Machine</a>
+              <a class="nav-link" href="https://github.com/tcurlster/Fake-News-Recognition-and-Classification-Project">Our Code</a>
             </li>
           </ul>
         </div>
@@ -40,11 +38,33 @@
   <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
-            <h3>Spot for Input Box to test article</h3>
-            <div>
-              <button id="find-truth">Find Out The Truth!</button>
-              <input id="input-field" type="text">
-            </div>
+          <h3>Test the article in question</h3>
+          <form method="POST" id="predict">
+            <textarea class="form-control" id="article_text'" rows="5" name="text"
+					 placeholder="Paste your article here..." required>{{article}}</textarea>
+
+            <!-- <label for="cars">Choose a Category:</label>
+              <select id="categories" name="categories">
+                <option value="POLITICS">POLITICS</option>
+                <option value="ENTERTAINMENT">ENTERTAINMENT</option>
+                <option value="ARTS & CULTURE">ARTS & CULTURE</option>
+                <option value="HEALTH & WELLNESS">HEALTH & WELLNESS</option>
+                <option value="FAMILY">FAMILY</option>
+                <option value="VOICES">VOICES</option>
+                <option value="BUSINESS">BUSINESS</option>
+                <option value="SPORTS">SPORTS</option>
+                <option value="TECH & SCIENCE">TECH & SCIENCE</option>
+                <option value="ENVIRONMENT">ENVIRONMENT</option>
+                <option value="CRIME">CRIME</option>
+                <option value="RELIGION">RELIGION</option>
+                <option value="EDUCATION">EDUCATION</option>
+              </select> -->
+              <br>
+              <button class="btn btn-primary btn-outline btn-md" type="submit" name="predict">Predict</button>
+          </form>
+          <br>
+          <br>
+          {{ prediction_text }}
         </div>
         <div class="col-md-8">
             <p>So what is “fake news”? Fake news is misinformation, poor reporting, lies or propaganda. In a political context, it is usually a directed effort to undermine a candidate, campaign or public figure.<br><br><bold>... To Be Continued ...</bold></p>
