@@ -1,9 +1,18 @@
 from flask import Flask, render_template, request
-#import pickle
+import pickle
+import string
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 
 app = Flask(__name__)
 
-#ml_model = pickle.load(open('model.pkl', 'rb'))
+ml_model = pickle.load(open('test_model.pkl', 'rb'))
+
+def punctuation_removal(text):
+    all_list = [char for char in text if char not in string.punctuation]
+    clean_str = ''.join(all_list)
+    return clean_str
 
 @app.route("/")
 def home():
@@ -13,13 +22,16 @@ def home():
 def fake_or_real():
 #     run formthrough machine learning model and render results
     article = str(request.form["text"])
-    
-#         prediction = ml_model.predict(encoding_function(article))
-#           output = 
-#         return render_template('index.html', prediction_text="Your article is: {}".format(output))
-    
-    return article
-
+    prepped_art = punctuation_removal(article)
+    tok_article = word_tokenize(prepped_art)
+    stop_words = stopwords.words('english')
+    cleaned_article = " ".join([word for word in tok_article if word not in stop_words])
+    prediction = ml_model.predict([cleaned_article])
+    if prediction[0] == "true":
+        output = "looks CREDIBLE!"
+    else:
+        output = "looks like FAKE NEWS!"
+    return render_template('index.html', prediction_text="Your article {}".format(output))
 
 if __name__ == "__main__":
     app.run(debug=True)

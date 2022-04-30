@@ -15,3 +15,6 @@ button {
 textarea {
     align-self: center;
 }
+#prediction_return{
+    text-align: center;
+}
