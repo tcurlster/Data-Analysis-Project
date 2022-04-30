@@ -18,7 +18,7 @@
   <div class="wrapper">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">Fake News</a>
+        <a class="navbar-brand" href="{{ url_for('templates', filename='index.html') }}">Fake News</a>
         <button class="navbar-toggler" type="button"  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -41,30 +41,14 @@
           <h3>Test the article in question</h3>
           <form method="POST" id="predict">
             <textarea class="form-control" id="article_text'" rows="5" name="text"
-					 placeholder="Paste your article here..." required>{{article}}</textarea>
-
-            <!-- <label for="cars">Choose a Category:</label>
-              <select id="categories" name="categories">
-                <option value="POLITICS">POLITICS</option>
-                <option value="ENTERTAINMENT">ENTERTAINMENT</option>
-                <option value="ARTS & CULTURE">ARTS & CULTURE</option>
-                <option value="HEALTH & WELLNESS">HEALTH & WELLNESS</option>
-                <option value="FAMILY">FAMILY</option>
-                <option value="VOICES">VOICES</option>
-                <option value="BUSINESS">BUSINESS</option>
-                <option value="SPORTS">SPORTS</option>
-                <option value="TECH & SCIENCE">TECH & SCIENCE</option>
-                <option value="ENVIRONMENT">ENVIRONMENT</option>
-                <option value="CRIME">CRIME</option>
-                <option value="RELIGION">RELIGION</option>
-                <option value="EDUCATION">EDUCATION</option>
-              </select> -->
+					  placeholder="Paste your article here..." required>{{article}}</textarea>
               <br>
               <button class="btn btn-primary btn-outline btn-md" type="submit" name="predict">Predict</button>
           </form>
           <br>
-          <br>
-          {{ prediction_text }}
+          <div id="prediction_return">
+            {{ prediction_text }}
+          </div>
         </div>
         <div class="col-md-8">
             <p>So what is “fake news”? Fake news is misinformation, poor reporting, lies or propaganda. In a political context, it is usually a directed effort to undermine a candidate, campaign or public figure.<br><br><bold>... To Be Continued ...</bold></p>
