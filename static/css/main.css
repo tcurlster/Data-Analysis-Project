@@ -1,9 +1,5 @@
 .jumbotron { 
-    background-image: url(https://eavi.eu/wp-content/uploads/2017/07/3-x-2-signe-cartoon-fake-news-1200x800.jpg);
-    background-size: 40% 120%;
-    background-position: left;
-    background-repeat: no-repeat;  
-    text-align: right;
+    text-align: center;
 }
 ::placeholder {
     text-align: start;
@@ -16,5 +12,11 @@ textarea {
     align-self: center;
 }
 #prediction_return{
+    border: 2px solid black;
+    margin: 20px;  
+    padding: 25px;
     text-align: center;
+}
+#img {
+    border: 2px solid black;
 }
