@@ -30,10 +30,10 @@ def fake_or_real():
     # machine learning model and render results
     prediction = ml_model.predict([cleaned_article])
     if prediction[0] == "true":
-        output = "CREDIBLE"
+        output = "CREDIBLE!"
     else:
         output = "like FAKE NEWS!"
-    return render_template('index.html', prediction_text="Your article looks {}".format(output))
+    return render_template('index.html', prediction_text="Your article looks {}".format(output), output=output)
 
 if __name__ == "__main__":
     app.run(debug=True)
