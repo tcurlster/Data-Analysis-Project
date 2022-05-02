@@ -48,9 +48,16 @@
           <div id="prediction_return">
             <h4 style="text-align:center">Prediction:<br>{{ prediction_text }}</h4>
           </div>
+          <div>
+            {% if output == "CREDIBLE" %}
+              <img src="" class="img-fluid mx-auto d-block" alt="word cloud credible">
+            {% else %}
+              <img src="" class="img-fluid mx-auto d-block" alt="fake news word cloud">
+            {% endif %}
+          </div>
           <br>
           <p style="text-align:center"><strong>Our Team of Koala-T Debuggers</strong>
-          <img src="{{ url_for('static', filename='img/{{ KoalaTDebuggers }}.png') }}" class="img-fluid mx-auto d-block" alt="mascot"></p> 
+          <img src="static/img/QualiTDebuggers.png" class="img-fluid mx-auto d-block" alt="mascot"></p>
         </div>
         <div class="col-md-8">
             <p>So what is “fake news”? Fake news is misinformation, poor reporting, lies or propaganda. In a political context, it is usually a directed effort to undermine a candidate, campaign or public figure. With the abundance of media outlets in the modern world and the tendency of "fake news" to be compelling and emotionally charged, no wonder these articles and stories spread like wildfire. In fact, an analysis by BuzzFeed found that <a href="https://www.buzzfeednews.com/article/craigsilverman/viral-fake-election-news-outperformed-real-news-on-facebook#.fvLPVppXj">fake news stories drew more shares and engagement</a> during the final three months of the 2016 presidential campaign than reports from (for example) the New York Times, the Washington Post and CNN. So how do we separate credible news from the unreliable?</p><br>
