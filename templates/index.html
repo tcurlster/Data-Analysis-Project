@@ -14,42 +14,61 @@
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
-<body class="bg">
+<body class="bg-light">
   <div class="wrapper">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Fake News</a>
+        <a class="navbar-brand" href="{{ url_for('home') }}">Fake News</a>
         <button class="navbar-toggler" type="button"  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-6 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Categories</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Our Machine</a>
+              <a class="nav-link" href="https://github.com/tcurlster/Fake-News-Recognition-and-Classification-Project">Our Code</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-  <div class="jumbotron">
-    <h1 class="display-4">What Is Real And What Is Not?</h1>
+  <div class="jumbotron text-light bg-primary">
+    <h1 class="display-4">Fake News - What Is Real And What Isn't?</h1>
   </div>
   <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
-            <h3>Spot for Input Box to test article</h3>
-            <div>
-              <button id="find-truth">Find Out The Truth!</button>
-              <input id="input-field" type="text">
-            </div>
+          <h3 style="text-align:center">Test the article in question</h3>
+          <form method="POST" id="predict">
+            <textarea class="form-control" id="article_text'" rows="5" name="text"
+					  placeholder="Paste your article here..." required>{{article}}</textarea>
+              <br>
+              <button class="btn btn-primary btn-outline btn-md" type="submit" name="predict">Predict</button>
+          </form>
+          <div id="prediction_return">
+            <h4 style="text-align:center">Prediction:<br>{{ prediction_text }}</h4>
+          </div>
+          <div id="word_cloud">
+            {% if output == "CREDIBLE!" %}
+              <p style="text-align:center"><strong>A word cloud from our Credible data set.</strong></p>
+              <img src="static/img/true_wordcloud.png" class="img-fluid mx-auto d-block" alt="word cloud credible">
+            {% elif output == "like FAKE NEWS!" %}
+              <p style="text-align:center"><strong>A word cloud from our Fake News data set.</strong></p>
+              <img src="static/img/fake_wordcloud.png" class="img-fluid mx-auto d-block" alt="fake news word cloud">
+            {% else %}
+            <p></p>
+            {% endif %}
+          </div>
+          <br><br>
+          <p style="text-align:center"><strong>Brought to you by our team of Koala-T Debuggers</strong>
+          <img src="static/img/QualiTDebuggers.png" class="img-fluid mx-auto d-block" alt="mascot"></p>
         </div>
         <div class="col-md-8">
-            <p>So what is “fake news”? Fake news is misinformation, poor reporting, lies or propaganda. In a political context, it is usually a directed effort to undermine a candidate, campaign or public figure.<br><br><bold>... To Be Continued ...</bold></p>
-            <br><br>
-            <div id="plotArea"></div>
+            <p>So what is “fake news”? Fake news is misinformation, poor reporting, lies or propaganda. In a political context, it is usually a directed effort to undermine a candidate, campaign or public figure. With the abundance of media outlets in the modern world and the tendency of "fake news" to be compelling and emotionally charged, no wonder these articles and stories spread like wildfire. In fact, an analysis by BuzzFeed found that <a href="https://www.buzzfeednews.com/article/craigsilverman/viral-fake-election-news-outperformed-real-news-on-facebook#.fvLPVppXj">fake news stories drew more shares and engagement</a> during the final three months of the 2016 presidential campaign than reports from (for example) the New York Times, the Washington Post and CNN. So how do we separate credible news from the unreliable?</p><br>
+            <img src="https://eavi.eu/wp-content/uploads/2017/07/3-x-2-signe-cartoon-fake-news-1200x800.jpg" class="img-fluid mx-auto d-block" id="img" alt="funny cartoon" width="480" height="260"><br>
+            <p>Even if we dispel the strong grip of confirmation bias and ideological predilections, it is decidedly hard to discern fake news from credible. In a 2016 <a href="https://purl.stanford.edu/fv751yt5934">study</a>, Researchers from Stanford University found that young students, ranging from middle to through college, had a hard time distinguishing good sources of information from questionable ones.  Many students judged the credibility of newsy tweets based on how much detail they contained or whether a large photo was attached, rather than on the source.</p>
+            <p>Our team of Koala-T Debuggers created a machine learning model that can predict whether an article is credible or fake news by NLP text analysis. The bar graph below shows the different superived machine learning models' prediction accuracy.</p>
+            <div style="text-align:center" id="plotArea"></div>
             <script src="{{ url_for('static', filename='js/index.js') }}"></script>
           </div>      
     </div>

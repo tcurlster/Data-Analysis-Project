@@ -1,50 +1,45 @@
 # Fake News Recognition & Classification Project
 
-## Overview
-With the abundance of media outlets in the modern world it has become increasingly difficult to separate credible news from fakes and clickbaits. This project aims to help the readers navigate the sea of news articles by providing a credibility scale and classifying news into various categories, ranging from “Satire” to “Hate News” and everything in between.
+## Project Overview 
+With the abundance of media outlets in the modern world it has become increasingly difficult to separate credible news from the unreliable. Because of this, we have decided to create an application that allows a users to input articles into a website and return the validity of the article contents and the category type of the article.
 
-## Goals
-1. Create a machine learning model that determines the validity of information contained within news articles and classifies that article into several categories
-2. Develop a website that takes the input of a news article and outputs whether it is real or fake and puts that article into a pre-defined category based on previous learning
+From this analysis, we hope to answer the following questions:
+- What categories of articles are more likely to include false information?
+- What words or phrases tend to show up the most in fake news compared?
 
-## Data Source
-- Article Categories: https://www.kaggle.com/datasets/rmisra/news-category-dataset
-- Article Validity: https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset
+## Architecture
+In order to accomplish our goal, we've used the following tools to develop the different aspects of our application:
+- Website development: HTML, CSS, Bootstrap, D3 & Flask
+- Data Cleaning & Preprocessing: Beautiful Soup, NLTK for Stop Word removal
+- NLP Classification Models: Sci-kit Learn & pre-trained Hugging Face model (VERIFY THIS ONE)
+- Database: MongoDB
+- Visualizations: MatPlotLib
+- Deployment: Heroku
 
-## Milestones
-1. Scrape article from links provided in categorical dataset for training the model
-    - Utilize BeautifulSoup to pull out the article contents and store back into the dataframe or MongoDB
+(ADD Architecture Diagram here)
 
-2. Build NLP model to calculate the credibility confidence score
-    - Preprocessing and tokenizing of dataset in preparation of adding it to the model
-    - Use train, test, split to create a training and testing dataset for model evaluation
-    - Use Scikit-Learn and imb_learn libraries to test multiple unsupervised classification machine learning models that will be evaluated for performance, optimized and the best performing model will be selected for the end product.
+## Project Milestones
+1. Identify Data Sources to train models
+    - Article Categories: https://www.kaggle.com/datasets/rmisra/news-category-dataset
+    - Article Validity: https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset
+
+2. Preprocessing of datasets: Categorical dataset web scraping and removal of stop words
+    - Utilize BeautifulSoup to pull out the article contents to allow for training of models
+
+3. Training of Validity model: splitting the datasets into training and testing subsets and using those datasets to test which model types have the best accurary. After testing Naive Bayes, Logistical Regression, Decision Tree and Random Forest models, we selected the Decision Tree model due to it's highest rate of accuracy.
+
+4. Training of Categorical model:
+
+5. Website development & database creation: create a site utilizing HTML, CSS and Bootstrap to allow for the input of an article, return of a prediction and display visualizations. The Flask app supports the back end interaction of the website, database and models.
+
+6. Application Deployment: Heroku
+
+## Project Challenges
+- At the beginning of the project, we found a training dataset that included both the category and whether the article was determined to be true or false. The issue that we ran into was that the data was not very clean and didn't lend itself to be very easy to work with for our purpose. This resulted in our team deciding to switch to the 2 datasets approach that accomplished our goal
+- The categorical dataset that we decided to use only included a link to the article instead of the full content which required us to scrape the data from the site. With scraping, we ran into 2 different problems: 
+    1) The site limiting the amount of articles one person could scrape
+    2) Other team members gaining access to the S3 bucket to be able to scrape and store the articles
     
-    Or
-    - Use a pre-trained HuggingFace Model that accomplishes the same goal
-    - DeepNote will be utilized to train the models 
-    - OpenAI’s GPT-2 and HuggingFace NLP models will be used for reference
+These issues resulted in a limited amount of articles that we were able to scrape and ultimately train the model with.
 
-3. Build classification algorithm to classify the news in various categories
-    - Use the preprocessed training and testing data from milestone II for model evaluation
-    - Use Scikit-Learn and imb_learn libraries to test multiple unsupervised classification machine learning models that will be evaluated for performance, optimized and the best performing model will be selected for the end product.
-    
-    Or
-
-    - Use a pre-trained HuggingFace Model that accomplishes the same goal
-    - DeepNote will be utilized to train the models
-
-4. Build a user-facing website for analyzing the news
-   - The website will provide an ability for the user to paste the desired news article or a link. The user will then be able to analyze the article by running the classification and NLP algorithms and results will be displayed.
-    - Flask application will be built to support the back end functionality of the website
-    - Front end will leverage html, css, bootstrap
-
-5. Create a database to store the input data to interact with the website
-    - Use a MongoDB database that is incorporated into Flask to store articles that are input into the site and then ran within the model
-
-6. Additional News/Source Analytics (optional) within website
-    - As time allows, we will be including additional news analytics for the user, such as:
-        - % of credible articles from the source they are checking
-        - Some semantic words/structures that point to news being credible/not credible, etc.
-    - Plotly Dash and/or d3.js would be used to build the graphics.
-
+## Results
