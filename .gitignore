@@ -135,3 +135,13 @@ dmypy.json
 .csv
 .json
 
+#Ignore test files
+NLP_Model_2.ipynb
+NLP_Model.ipynb
+NLP_BERT_Ktrain.ipynb
+
+
+#Ignore foders
+/WIP
+/Data_Batches
+/uncased_L-12_H-768_A-12
