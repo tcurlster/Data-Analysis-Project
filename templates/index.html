@@ -14,11 +14,11 @@
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
-<body class="bg">
+<body class="bg-light">
   <div class="wrapper">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Fake News</a>
+        <a class="navbar-brand" href="{{ url_for('home') }}">Fake News</a>
         <button class="navbar-toggler" type="button"  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,13 +32,13 @@
         </div>
       </div>
     </nav>
-  <div class="jumbotron">
-    <h1 class="display-4">What Is Real And What Is Not?</h1>
+  <div class="jumbotron text-light bg-primary">
+    <h1 class="display-4">Fake News - What Is Real And What Isn't?</h1>
   </div>
   <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
-          <h3 style="text-align:center">Test your article in question</h3>
+          <h3 style="text-align:center">Test the article in question</h3>
           <form method="POST" id="predict">
             <textarea class="form-control" id="article_text'" rows="5" name="text"
 					  placeholder="Paste your article here..." required>{{article}}</textarea>
@@ -48,9 +48,20 @@
           <div id="prediction_return">
             <h4 style="text-align:center">Prediction:<br>{{ prediction_text }}</h4>
           </div>
-          <br>
-          <p style="text-align:center"><strong>Our Team of Koala-T Debuggers</strong>
-          <img src="{{ url_for('static', filename='img/{{ KoalaTDebuggers }}.png') }}" class="img-fluid mx-auto d-block" alt="mascot"></p> 
+          <div id="word_cloud">
+            {% if output == "CREDIBLE!" %}
+              <p style="text-align:center"><strong>A word cloud from our Credible data set.</strong></p>
+              <img src="static/img/true_wordcloud.png" class="img-fluid mx-auto d-block" alt="word cloud credible">
+            {% elif output == "like FAKE NEWS!" %}
+              <p style="text-align:center"><strong>A word cloud from our Fake News data set.</strong></p>
+              <img src="static/img/fake_wordcloud.png" class="img-fluid mx-auto d-block" alt="fake news word cloud">
+            {% else %}
+            <p></p>
+            {% endif %}
+          </div>
+          <br><br>
+          <p style="text-align:center"><strong>Brought to you by our team of Koala-T Debuggers</strong>
+          <img src="static/img/QualiTDebuggers.png" class="img-fluid mx-auto d-block" alt="mascot"></p>
         </div>
         <div class="col-md-8">
             <p>So what is “fake news”? Fake news is misinformation, poor reporting, lies or propaganda. In a political context, it is usually a directed effort to undermine a candidate, campaign or public figure. With the abundance of media outlets in the modern world and the tendency of "fake news" to be compelling and emotionally charged, no wonder these articles and stories spread like wildfire. In fact, an analysis by BuzzFeed found that <a href="https://www.buzzfeednews.com/article/craigsilverman/viral-fake-election-news-outperformed-real-news-on-facebook#.fvLPVppXj">fake news stories drew more shares and engagement</a> during the final three months of the 2016 presidential campaign than reports from (for example) the New York Times, the Washington Post and CNN. So how do we separate credible news from the unreliable?</p><br>
