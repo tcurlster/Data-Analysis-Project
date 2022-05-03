@@ -9,11 +9,10 @@ From this analysis, we hope to answer the following questions:
 
 ## Architecture
 In order to accomplish our goal, we've used the following tools to develop the different aspects of our application:
-- Website development: HTML, CSS, Bootstrap, D3 & Flask
+- Website development: HTML, CSS, Bootstrap, Javascript & Flask
 - Data Cleaning & Preprocessing: Beautiful Soup, NLTK for Stop Word removal
-- NLP Classification Models: Sci-kit Learn & pre-trained Hugging Face model (VERIFY THIS ONE)
-- Database: MongoDB
-- Visualizations: MatPlotLib
+- NLP Classification Models: Scikit-Learn & pre-trained Hugging Face model
+- Visualizations: MatPlotLib & Plotly
 - Deployment: Heroku
 
 (ADD Architecture Diagram here)
@@ -42,4 +41,7 @@ In order to accomplish our goal, we've used the following tools to develop the d
     
 These issues resulted in a limited amount of articles that we were able to scrape and ultimately train the model with.
 
-## Results
+## Ideas for Improvement
+- Create a database to store all inputs to use for future training
+- Since our True/False model was initially trained primarily on political articles, we would like to add more article categories to this training dataset
+- Due to the amount of time required to scrape data, we only scraped a small subset for each category. Because of that, we would like to train more articles from each category
