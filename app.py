@@ -9,6 +9,11 @@ app = Flask(__name__)
 
 ml_model = pickle.load(open('test_model.pkl', 'rb'))
 
+# try:    
+#     categories_model = pickle.load(open('categories_model.pkl', 'rb'))
+# except Exception as e:
+#     print(e)
+
 def punctuation_removal(text):
     all_list = [char for char in text if char not in string.punctuation]
     clean_str = ''.join(all_list)
