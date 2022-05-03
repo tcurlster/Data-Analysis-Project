@@ -5,29 +5,41 @@ With the abundance of media outlets in the modern world it has become increasing
 
 From this analysis, we hope to answer the following questions:
 - What categories of articles are more likely to include false information?
-- What words or phrases tend to show up the most in fake news compared?
+- What words or phrases tend to show up the most in fake news as compared to the credible?
 
 ## Architecture
 In order to accomplish our goal, we've used the following tools to develop the different aspects of our application:
-- Website development: HTML, CSS, Bootstrap, Javascript & Flask
 - Data Cleaning & Preprocessing: Beautiful Soup, NLTK for Stop Word removal
 - NLP Classification Models: Scikit-Learn & pre-trained Hugging Face model
 - Visualizations: MatPlotLib & Plotly
+- Website development: HTML, CSS, Bootstrap, Javascript & Flask
 - Deployment: Heroku
 
-(ADD Architecture Diagram here)
+![Project Architecture](Resources/Project_Architecture.png)
+
 
 ## Project Milestones
 1. Identify Data Sources to train models
     - Article Categories: https://www.kaggle.com/datasets/rmisra/news-category-dataset
     - Article Validity: https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset
 
-2. Preprocessing of datasets: Categorical dataset web scraping and removal of stop words
-    - Utilize BeautifulSoup to pull out the article contents to allow for training of models
+2. Scraping and Preprocessing of datasets: 
+
+- Utilize BeautifulSoup and Splinter libraries to scrape the HuffPOst website and retrieve the content of the news article from the categorical dataset.
+- Utilize Pandas and NLTK to clean the data from both datasets, prepare the body of the articles for wordcloud generating and preprocess for machine learning models (removing puctuation, stop words and non-word characters)
 
 3. Training of Validity model: splitting the datasets into training and testing subsets and using those datasets to test which model types have the best accurary. After testing Naive Bayes, Logistical Regression, Decision Tree and Random Forest models, we selected the Decision Tree model due to it's highest rate of accuracy.
 
 4. Training of Categorical model:
+
+- Connect and configure TPU cluster for faster model training
+- Convert the dataset into TF dataset format and split into train and test
+- Tokenize the data using pre-trained Roberta tokenizer from HuggingFace
+- Compile the model using pre-trained Roberta model from HuggingFace and fit on the training dataset
+- Evaluate model performance on the validaton dataset
+- Add ability for the user to pass in an article for prediction
+- Display the final prediction and top 3 prediction categories.
+
 
 5. Website development & database creation: create a site utilizing HTML, CSS and Bootstrap to allow for the input of an article, return of a prediction and display visualizations. The Flask app supports the back end interaction of the website, database and models.
 
