@@ -43,6 +43,7 @@ In order to accomplish our goal, we've used the following tools to develop the d
 ![Categorical Accuracy](Resources/Categorical_Model_Accuracy.png) 
 - Add ability for the user to pass in an article for prediction
 - Display the final prediction and top 3 prediction categories.
+
     ![Sport Wordcloud](Resources/SPORTS_wordcloud.png)
     ![Category Prediction](Resources/Category_Prediction.png)
 
