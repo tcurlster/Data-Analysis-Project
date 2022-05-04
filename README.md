@@ -12,7 +12,7 @@ From this analysis, we hope to answer the following questions:
 ## Architecture
 In order to accomplish our goal, we've used the following tools to develop the different aspects of our application:
 - Data Cleaning & Preprocessing: Beautiful Soup, NLTK for Stop Word removal
-- NLP Classification Models: Scikit-Learn & pre-trained Hugging Face model
+- NLP Classification Models: Scikit-Learn & Tensorflow with pre-trained Hugging Face model
 - Visualizations: MatPlotLib & Plotly
 - Website development: HTML, CSS, Bootstrap, Javascript & Flask
 - Deployment: Heroku
