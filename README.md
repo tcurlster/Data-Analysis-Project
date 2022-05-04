@@ -40,12 +40,30 @@ In order to accomplish our goal, we've used the following tools to develop the d
 - Tokenize the data using pre-trained Roberta tokenizer from HuggingFace
 - Compile the model using pre-trained Roberta model from HuggingFace and fit on the training dataset
 - Evaluate model performance on the validaton dataset
-![Categorical Accuracy](Resources/Categorical_Model_Accuracy.png) 
+
+Evaluation Results:
+
+1. Training on original categories with Batch Size=2
+
+![Original Categories Batch2 Accuracy Graph](Resources/Categories_Model_Performance/OriginalCats_Batch2_Graph.png) 
+![Original Categories Batch2 Accuracy Score](Resources/Categories_Model_Performance/OriginalCats_Batch2_Scores.png) 
+
+2. Training on new categories with Batch Size=2
+![New Categories Batch2 Accuracy Graph](Resources/Categories_Model_Performance/NewCats_Batch2_Graph.png) 
+![New Categories Batch2 Accuracy Score](Resources/Categories_Model_Performance/NewCats_Batch2_Scores.png) 
+
+3. Training on new categories with Batch Size=32
+![New Categories Batch32 Accuracy Graph](Resources/Categories_Model_Performance/NewCats_Batch32_Graph.png) 
+![New Categories Batch32 Accuracy Score](Resources/Categories_Model_Performance/NewCats_Batch32_Scores.png) 
+
+
 - Add ability for the user to pass in an article for prediction
 - Display the final prediction and top 3 prediction categories.
 
+    ![Category Prediction](Resources/Categories_Model_Performance/NewCats_Batch32_Pred.png)
+
+
     ![Sport Wordcloud](Resources/SPORTS_wordcloud.png)
-    ![Category Prediction](Resources/Category_Prediction.png)
 
 5. Website development & database creation: create a site utilizing HTML, CSS and Bootstrap to allow for the input of an article, return of a prediction and display visualizations. The Flask app supports the back end interaction of the website, database and models.
 
@@ -65,7 +83,7 @@ In order to accomplish our goal, we've used the following tools to develop the d
 These issues resulted in a limited amount of articles that we were able to scrape and ultimately train the model with.
 
 ## Takeaways
-We've learned as we've completed this project, but a few things have stuck out:
+We've learned a lot as we've completed this project, but a few things have stuck out:
 - Instead of immediately scraping data from a site, we will first look to see if an API is available
 - Allow our data to help drive what our project intentions are. Sticking to strict project goals is difficult when you don't have the data to support it
 - "Real world" data is messy and can take a lot of time to access, then clean to get into a usable format
