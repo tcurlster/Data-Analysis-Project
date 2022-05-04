@@ -43,7 +43,7 @@ In order to accomplish our goal, we've used the following tools to develop the d
 ![Categorical Accuracy](Resources/Categorical_Model_Accuracy.png) 
 - Add ability for the user to pass in an article for prediction
 - Display the final prediction and top 3 prediction categories.
-![Sport Wordcloud](Resources/Sports_wordcloud.png)
+![Sport Wordcloud](Resources/SPORTS_wordcloud.png)
 ![Category Prediction](Resources/Category_Prediction.png)
 
 5. Website development & database creation: create a site utilizing HTML, CSS and Bootstrap to allow for the input of an article, return of a prediction and display visualizations. The Flask app supports the back end interaction of the website, database and models.
